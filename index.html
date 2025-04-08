@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>약 구입 키오스크</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .search-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 300px;
+      font-size: 16px;
+    }
+    .medicine-list {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .medicine-item {
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+
+<h1>💊 약 구입 키오스크</h1>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="약 이름을 입력하세요..." onkeyup="filterMedicines()">
+</div>
+
+<div class="medicine-list" id="medicineList">
+  <!-- Sample medicines -->
+  <div class="medicine-item"><span>타이레놀</span> <button>구매</button></div>
+  <div class="medicine-item"><span>어린이 부루펜</span> <button>구매</button></div>
+  <div class="medicine-item"><span>판콜에이</span> <button>구매</button></div>
+  <div class="medicine-item"><span>지르텍</span> <button>구매</button></div>
+  <div class="medicine-item"><span>겔포스</span> <button>구매</button></div>
+  <div class="medicine-item"><span>인사돌</span> <button>구매</button></div>
+  <div class="medicine-item"><span>둘코락스</span> <button>구매</button></div>
+  <div class="medicine-item"><span>액티피드</span> <button>구매</button></div>
+</div>
+
+<script>
+function filterMedicines() {
+  const input = document.getElementById('searchInput').value.toLowerCase();
+  const items = document.querySelectorAll('.medicine-item');
+  items.forEach(item => {
+    const name = item.textContent.toLowerCase();
+    item.style.display = name.includes(input) ? 'flex' : 'none';
+  });
+}
+</script>
+
+</body>
+</html>
